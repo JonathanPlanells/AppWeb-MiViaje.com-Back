@@ -1,4 +1,4 @@
-package com.backmiviaje;
+package com.hibernate;
 
 import static org.junit.Assert.assertTrue;
 
