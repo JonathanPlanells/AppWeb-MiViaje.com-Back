@@ -15,7 +15,7 @@ public class HotelService {
 
     // ATRIBUTOS
     private SessionFactory factory;
-    File f = new File("backmiviaje/src/main/resource/hibernate.cfg.xml");
+    File f = new File("src/main/resource/hibernate.cfg.xml");
 
     // :::: CREAR OBJETO QUE PERMITA FABRICAR SESIONES :::: 
     public HotelService(){
@@ -58,7 +58,68 @@ public class HotelService {
         return hoteles;
     }
 
+    // ::::  OBTENER POR ID :::: 
+    public Hotel getHotelId(int idHoteles){
+        Hotel hotel = new Hotel();
+        Session session = openSession();
+        try {
+            hotel = session.find(Hotel.class, idHoteles);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        session.close(); // ??
+        return hotel;
 
+    }
 
+    // ::::  OBTENER POR CIUDAD :::: 
+
+    public List<Hotel> getHotelCiudad(String ciudad){
+        List<Hotel> hoteles = new ArrayList<>();
+        Session session = openSession();
+        try {
+            hoteles = session.createQuery("from Hotel where ciudad = :ciudad", Hotel.class).setParameter("ciudad", ciudad).list();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        session.close();
+        return hoteles;
+
+    }
+
+    // ::::  ACTUALIZAR HOTEL :::: 
+
+    public String actualizarHotel(Hotel hotel){
+        String notifacion = "";
+        Session session = openSession();
+        try {
+            session.merge(hotel);
+            session.getTransaction().commit();
+            notifacion = "Hotel actualizdo con exito";
+        } catch (Exception e) {
+            e.printStackTrace();
+            notifacion = e.getMessage();
+        }
+        session.close();
+        return notifacion;
+    }
+
+    // ::::  BORRAR HOTEL :::: 
+    
+    public String borrarHotel(int idHoteles){
+        String notificacion = "";
+        Session session = openSession();
+        try {
+            Hotel hotel= getHotelId(idHoteles);
+            session.remove(hotel);
+            session.getTransaction().commit();
+            notificacion = "Hotel elimindo con exito";
+        } catch (Exception e) {
+            e.printStackTrace();
+            notificacion = e.getMessage();
+        }
+        session.close();
+        return notificacion;
+    }
 }
 
