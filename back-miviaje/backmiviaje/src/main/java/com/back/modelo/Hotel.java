@@ -33,10 +33,6 @@ public class Hotel {
         this.imagen = imagen;
     }
 
-
-
-
-
     public String toString(){
         String info = "----------------------\n";
         info += "nombreHotel: " + nombreHotel;
@@ -49,7 +45,7 @@ public class Hotel {
         return info;
     }
 
-    //CONSULTORES // GETTERS
+    // CONSULTORES // GETTERS
     public int getIdHoteles(){
         return idHoteles;
     }

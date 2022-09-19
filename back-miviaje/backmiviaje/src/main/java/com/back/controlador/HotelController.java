@@ -45,12 +45,12 @@ public class HotelController {
     }
 
     // :::: OBTENIENDO HOTEL POR CIUDAD ::::
-    @GetMapping("/ciudad/{ciudad}")
+    @GetMapping("/{ciudad}")
     public List<Hotel> getHotelCiudad(@PathVariable(name = "ciudad") String ciudad){
         return service.getHotelCiudad(ciudad);
     }
 
-    // :::: ACTUALIZAR - HOTEL MASCOTA :::: //
+    // :::: ACTUALIZAR - HOTEL :::: //
     @PutMapping
     public String actualizarHotel(@RequestBody Hotel hotel){
         return service.actualizarHotel(hotel);

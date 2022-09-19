@@ -23,7 +23,10 @@ public class App
                 // Si tenemos varios controladores se duplica "registry.addMapping("/mascotas").allowedOrigins("*");" y se cambia la ruta addMapping
                 // cambiamos * por el dominio o puerto para dar permiso en especifico
                 registry.addMapping("/hoteles").allowedOrigins("*"); 
+                registry.addMapping("/hoteles/bogota").allowedOrigins("*"); 
+                registry.addMapping("/reservas").allowedOrigins("*"); 
             }
+            
         };
     }
 
