@@ -58,7 +58,7 @@ public class HotelController {
 
     // :::: BORRAR - HOTEL :::: //
     @DeleteMapping("/{idHotel}")
-    public String delet(@PathVariable(name="idHotel") int idHoteles){
+    public String borraHotel(@PathVariable(name="idHotel") int idHoteles){
         return service.borrarHotel(idHoteles);
     }
 }
