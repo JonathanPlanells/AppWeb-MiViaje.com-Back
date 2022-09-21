@@ -45,19 +45,15 @@ public class ReservaService {
     }
 
     // :::: GENERAR TOKEN ::::
-
     public static String generarToken(int longitud) {
         String letrasMin = "abcdefghijklmnopqrstuvwxyz";
         String letrasMayu = letrasMin.toUpperCase();
         String numeros = "0123456789";
         String randomToken = letrasMin + letrasMayu + numeros;
         SecureRandom random = new SecureRandom();
-
         if (longitud < 1)
             throw new IllegalArgumentException();
-
         StringBuilder tokenFinal = new StringBuilder(longitud);
-
         for (int i = 0; i < longitud; i++) {
             // 0-62 (exclusive), retornos aleatorios 0-61
             int rndCharAt = random.nextInt(randomToken.length());

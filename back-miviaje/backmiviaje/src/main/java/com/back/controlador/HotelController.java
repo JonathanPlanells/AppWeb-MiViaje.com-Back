@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.back.modelo.Hotel;
 import com.back.servicios.HotelService;
 
+
 @RestController
 @RequestMapping("/hoteles")
 public class HotelController {
@@ -61,4 +62,6 @@ public class HotelController {
     public String borraHotel(@PathVariable(name="idHotel") int idHoteles){
         return service.borrarHotel(idHoteles);
     }
+
+
 }

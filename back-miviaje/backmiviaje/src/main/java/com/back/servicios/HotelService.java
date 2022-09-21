@@ -12,7 +12,6 @@ import com.back.modelo.Hotel;
 
 public class HotelService {
 
-
     // ATRIBUTOS
     private SessionFactory factory;
     File f = new File("back-miviaje/backmiviaje/src/main/resource/hibernate.cfg.xml");
@@ -121,5 +120,7 @@ public class HotelService {
         session.close();
         return notificacion;
     }
+
+
 }
 

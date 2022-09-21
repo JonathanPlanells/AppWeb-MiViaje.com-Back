@@ -31,6 +31,9 @@ CREATE TABLE reservas (
     numeroDocumento VARCHAR(30)
 );
 
+
+
+
 CREATE TABLE pvhotelreserva(
 	idreservasHoteles INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	fkHoteles INT,
@@ -47,3 +50,8 @@ CREATE TABLE contacto (
     telefonoContacto VARCHAR(45) NOT NULL,
     mensajeContacto TEXT NOT NULL
 );
+
+
+SELECT * FROM  hoteles;
+SELECT * FROM reservas;
+SELECT * FROM pvhotelreserva;

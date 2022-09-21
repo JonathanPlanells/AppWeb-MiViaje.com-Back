@@ -2,6 +2,7 @@ package com.back.modelo;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+
 import jakarta.persistence.Table;
 
 @Entity
@@ -18,31 +19,18 @@ public class Hotel {
     private int disponibleHabitaciones;
     private String costoHabitacion;
     private String imagen;
-    
 
-    // CONSTRUCTORES
-    public Hotel() {}
+    public Hotel(){}
 
-    public Hotel(String nombreHotel, String ciudad, int totalHabitaciones, int disponibleHabitaciones,
+    public Hotel(int idHoteles, String nombreHotel, String ciudad, int totalHabitaciones, int disponibleHabitaciones,
             String costoHabitacion, String imagen) {
+        this.idHoteles = idHoteles;
         this.nombreHotel = nombreHotel;
         this.ciudad = ciudad;
         this.totalHabitaciones = totalHabitaciones;
         this.disponibleHabitaciones = disponibleHabitaciones;
         this.costoHabitacion = costoHabitacion;
         this.imagen = imagen;
-    }
-
-    public String toString(){
-        String info = "----------------------\n";
-        info += "nombreHotel: " + nombreHotel;
-        info += "ciudad" + ciudad;
-        info += "totalHabitaciones" + totalHabitaciones;
-        info += "disponibleHabitaciones" + disponibleHabitaciones;
-        info += "costoHabitacion" + costoHabitacion;
-        info += "imagen" + imagen;
-        info += "\n----------------------\n";
-        return info;
     }
 
     // CONSULTORES // GETTERS
@@ -73,7 +61,7 @@ public class Hotel {
     public String getImagen() {
         return imagen;
     }
-
+    
     //MODIFICADORES // SETTERS
 
     public void setNombreHotel(String nombreHotel) {
@@ -98,6 +86,6 @@ public class Hotel {
 
     public void setImagen(String imagen) {
         this.imagen = imagen;
-    }  
-
+    }
+   
 }

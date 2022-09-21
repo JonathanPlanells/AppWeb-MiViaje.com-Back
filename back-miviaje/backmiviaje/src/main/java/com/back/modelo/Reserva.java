@@ -12,6 +12,7 @@ import jakarta.persistence.Table;
 @Table(name = "reservas")
 
 public class Reserva {
+
     
     // ATRIBUTOS
     @Id
@@ -26,13 +27,14 @@ public class Reserva {
     private String telefonoPersona;
     private String tipoDocumento;
     private String numeroDocumento;
-    
-    // CONSTRUCTORES 
-    public Reserva(){}
+    private int fkHotel;
 
+    // CONSTRUCTORES 
+    public Reserva(){
+    }
 
     public Reserva(String token, Date fechaInicial, Date fechaFinal, int cantidadPersonas, String nombrePersona,
-            String apellidoPersona, String correoPersona, String telefonoPersona, String tipoDocumento, String numeroDocumento) {
+            String apellidoPersona, String correoPersona, String telefonoPersona, String tipoDocumento, String numeroDocumento, int fkHotel) {
         //this.token = service.generateRandomString(10);
         this.token = token;
         this.fechaInicial = fechaInicial;
@@ -44,7 +46,9 @@ public class Reserva {
         this.telefonoPersona = telefonoPersona;
         this.tipoDocumento = tipoDocumento;
         this.numeroDocumento = numeroDocumento;
+        this.fkHotel = fkHotel;
     }
+
 
     public String toString(){
         String info = "----------------------\n";
@@ -106,6 +110,10 @@ public class Reserva {
     public String getNumeroDocumento() {
         return numeroDocumento;
     }
+    
+    public int getFkHotel() {
+        return fkHotel;
+    }
 
     //MODIFICADORES // SETTERS
 
@@ -143,5 +151,7 @@ public class Reserva {
     public void setNumeroDocumento(String numeroDocumento) {
         this.numeroDocumento = numeroDocumento;
     }
+
+    
 
 }
