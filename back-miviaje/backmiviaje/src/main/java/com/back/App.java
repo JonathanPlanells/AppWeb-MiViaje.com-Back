@@ -25,6 +25,11 @@ public class App
                 registry.addMapping("/hoteles").allowedOrigins("*"); 
                 registry.addMapping("/hoteles/bogota").allowedOrigins("*"); 
                 registry.addMapping("/reservas").allowedOrigins("*"); 
+                registry.addMapping("/reservas/id").allowedOrigins("*"); 
+                registry.addMapping("/reservas/id/*").allowedOrigins("*");
+                registry.addMapping("/reservas/token/*").allowedOrigins("*"); 
+                registry.addMapping("/reservas/token").allowedOrigins("*");
+                
             }
             
         };

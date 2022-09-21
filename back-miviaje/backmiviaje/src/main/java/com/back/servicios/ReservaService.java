@@ -76,6 +76,7 @@ public class ReservaService {
         return reservas;
     }
 
+
     // :::: OBTENER POR NUMERO DOCUMENTO Y NUMERO DE RESERVA::::
     public Reserva getReservaNumDocumentoToken(String numeroDocumento, String token) {
         Reserva reserva = new Reserva();
@@ -108,7 +109,20 @@ public class ReservaService {
         }
         session.close(); // ??
         return reserva;
+    }
 
+    // :::: OBTENER token ::::
+    public List<Reserva> getID_TOKEN(String numeroDocumento) {
+       List<Reserva> reservas = new ArrayList<>();
+        Session session = openSession();
+        try {
+            reservas = session.createQuery("SELECT token FROM Reserva r WHERE r.numeroDocumento = :numeroDocumento", Reserva.class)
+                    .setParameter("numeroDocumento", numeroDocumento).list();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        session.close(); // ??
+        return reservas;
     }
 
     // :::: ACTUALIZAR RESERVA ::::

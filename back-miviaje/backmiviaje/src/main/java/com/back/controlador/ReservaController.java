@@ -51,13 +51,19 @@ public class ReservaController {
         return service.getReservaNumDocumentoToken(numeroDocumento, token);
     }
 
+    // ::::  OBTENIENDO TOKEN POR ID ::::
+    @GetMapping("/token/{numerodocumento}")
+    public List<Reserva> getID_TOKEN(@PathVariable(name="numerodocumento") String numeroDocumento){
+        return service.getID_TOKEN(numeroDocumento);
+    }
+
     // :::: BORRAR - RESERVA :::: //
     @DeleteMapping("/{id}")
     public String borrarReserva(@PathVariable(name="id") int idReservas){
         return service.borrarReserva(idReservas);
     }
     
-    @PutMapping("/{id}")
+    @PutMapping
     public String actualizarReserva(@RequestBody Reserva reserva){
         return service.actualizarReserva(reserva);
     }
