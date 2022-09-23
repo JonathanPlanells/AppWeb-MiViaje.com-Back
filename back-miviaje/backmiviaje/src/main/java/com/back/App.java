@@ -23,12 +23,22 @@ public class App
                 // Si tenemos varios controladores se duplica "registry.addMapping("/mascotas").allowedOrigins("*");" y se cambia la ruta addMapping
                 // cambiamos * por el dominio o puerto para dar permiso en especifico
                 registry.addMapping("/hoteles").allowedOrigins("*"); 
+                registry.addMapping("/hoteles/*").allowedOrigins("*"); 
+                registry.addMapping("/hoteles/id/*").allowedOrigins("*"); 
                 registry.addMapping("/hoteles/bogota").allowedOrigins("*"); 
                 registry.addMapping("/reservas").allowedOrigins("*"); 
+                registry.addMapping("/reservas/*").allowedOrigins("*"); 
                 registry.addMapping("/reservas/id").allowedOrigins("*"); 
                 registry.addMapping("/reservas/id/*").allowedOrigins("*");
                 registry.addMapping("/reservas/token/*").allowedOrigins("*"); 
                 registry.addMapping("/reservas/token").allowedOrigins("*");
+                registry.addMapping("/reservas/mireserva").allowedOrigins("*");
+                registry.addMapping("/reservas/mireserva/*").allowedOrigins("*");
+                registry.addMapping("/reservas/mireserva").allowedOrigins("*");
+                registry.addMapping("/hoteles/hotel-reservado/*").allowedOrigins("*");
+                registry.addMapping("/**").allowedMethods("*");
+                
+    
                 
             }
             

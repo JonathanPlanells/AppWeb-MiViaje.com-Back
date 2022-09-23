@@ -49,7 +49,7 @@ public class ReservaService {
         String letrasMin = "abcdefghijklmnopqrstuvwxyz";
         String letrasMayu = letrasMin.toUpperCase();
         String numeros = "0123456789";
-        String randomToken = letrasMin + letrasMayu + numeros;
+        String randomToken = letrasMayu + numeros;
         SecureRandom random = new SecureRandom();
         if (longitud < 1)
             throw new IllegalArgumentException();
@@ -111,13 +111,13 @@ public class ReservaService {
         return reserva;
     }
 
-    // :::: OBTENER token ::::
+    // :::: OBTENER TOKEN ::::
     public List<Reserva> getID_TOKEN(String numeroDocumento) {
        List<Reserva> reservas = new ArrayList<>();
         Session session = openSession();
         try {
             reservas = session.createQuery("SELECT token FROM Reserva r WHERE r.numeroDocumento = :numeroDocumento", Reserva.class)
-                    .setParameter("numeroDocumento", numeroDocumento).list();
+            .setParameter("numeroDocumento", numeroDocumento).list();
         } catch (Exception e) {
             e.printStackTrace();
         }

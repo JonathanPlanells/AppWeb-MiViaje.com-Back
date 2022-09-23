@@ -2,6 +2,7 @@ package com.back.controlador;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,7 @@ import com.back.modelo.Reserva;
 import com.back.servicios.ReservaService;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/reservas")
 public class ReservaController {
 
@@ -46,7 +48,7 @@ public class ReservaController {
     
     // ::::  OBTENIENDO RESERVA POR NUM DOCUMENTO - TOKEN ::::
 
-    @GetMapping("/tu-reserva")
+    @GetMapping("/mireserva")
     public Reserva getReservaNumDocumentoToken(@RequestParam String numeroDocumento, @RequestParam String token){
         return service.getReservaNumDocumentoToken(numeroDocumento, token);
     }

@@ -2,6 +2,7 @@ package com.back.controlador;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,7 @@ import com.back.servicios.HotelService;
 
 
 @RestController
+@CrossOrigin
 @RequestMapping("/hoteles")
 public class HotelController {
 
@@ -50,6 +52,8 @@ public class HotelController {
     public List<Hotel> getHotelCiudad(@PathVariable(name = "ciudad") String ciudad){
         return service.getHotelCiudad(ciudad);
     }
+
+
 
     // :::: ACTUALIZAR - HOTEL :::: //
     @PutMapping
