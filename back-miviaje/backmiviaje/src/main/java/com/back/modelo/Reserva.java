@@ -1,6 +1,6 @@
 package com.back.modelo;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 import com.back.servicios.ReservaService;
 
@@ -18,9 +18,10 @@ public class Reserva {
     @Id
     private int idReservas;
     private String token = ReservaService.generarToken(10);
-    private Date fechaInicial;
-    private Date fechaFinal;
+    private LocalDate fechaInicial;
+    private LocalDate fechaFinal;
     private int cantidadPersonas;
+    private int cantidadHabitaciones;
     private String nombrePersona;
     private String apellidoPersona;
     private String correoPersona;
@@ -33,13 +34,14 @@ public class Reserva {
     public Reserva(){
     }
 
-    public Reserva(String token, Date fechaInicial, Date fechaFinal, int cantidadPersonas, String nombrePersona,
+    public Reserva(String token, LocalDate fechaInicial, LocalDate fechaFinal, int cantidadPersonas, int cantidadHabitaciones, String nombrePersona,
             String apellidoPersona, String correoPersona, String telefonoPersona, String tipoDocumento, String numeroDocumento, int fkHotel) {
         //this.token = service.generateRandomString(10);
         this.token = token;
         this.fechaInicial = fechaInicial;
         this.fechaFinal = fechaFinal;
         this.cantidadPersonas = cantidadPersonas;
+        this.cantidadHabitaciones = cantidadHabitaciones;
         this.nombrePersona = nombrePersona;
         this.apellidoPersona = apellidoPersona;
         this.correoPersona = correoPersona;
@@ -75,18 +77,21 @@ public class Reserva {
         return token;
     }
 
-    public Date getFechaInicial() {
+    public LocalDate getFechaInicial() {
         return fechaInicial;
     }
 
-    public Date getFechaFinal() {
+    public LocalDate getFechaFinal() {
         return fechaFinal;
     }
 
     public int getCantidadPersonas() {
         return cantidadPersonas;
     }
-
+    public int getCantidadHabitaciones() {
+        return cantidadHabitaciones;
+    }
+    
     public String getNombrePersona() {
         return nombrePersona;
     }
@@ -117,18 +122,21 @@ public class Reserva {
 
     //MODIFICADORES // SETTERS
 
-    public void setFechaInicial(Date fechaInicial) {
+    public void setFechaInicial(LocalDate fechaInicial) {
         this.fechaInicial = fechaInicial;
     }
 
-    public void setFechaFinal(Date fechaFinal) {
+    public void setFechaFinal(LocalDate fechaFinal) {
         this.fechaFinal = fechaFinal;
     }
 
     public void setCantidadPersonas(int cantidadPersonas) {
         this.cantidadPersonas = cantidadPersonas;
     }
-
+    public void setCantidadHabitacioness(int cantidadHabitaciones) {
+        this.cantidadHabitaciones = cantidadHabitaciones;
+    }
+    
     public void setNombrePersona(String nombrePersona) {
         this.nombrePersona = nombrePersona;
     }

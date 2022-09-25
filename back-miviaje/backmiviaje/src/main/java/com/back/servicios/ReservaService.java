@@ -78,14 +78,15 @@ public class ReservaService {
 
 
     // :::: OBTENER POR NUMERO DOCUMENTO Y NUMERO DE RESERVA::::
-    public Reserva getReservaNumDocumentoToken(String numeroDocumento, String token) {
+    public Reserva getReservaNumDocumentoToken(String numeroDocumento, String token, String tipoDocumento) {
         Reserva reserva = new Reserva();
         Session session = openSession();
         try {
             List<Reserva> list = session
-                    .createQuery("from Reserva where numeroDocumento = :numeroDocumento and token = :token", Reserva.class)
+                    .createQuery("from Reserva where numeroDocumento = :numeroDocumento and token = :token and tipoDocumento = :tipoDocumento", Reserva.class)
                     .setParameter("numeroDocumento", numeroDocumento)
                     .setParameter("token", token)
+                    .setParameter("tipoDocumento", tipoDocumento)
                     .list();
             if (list.size() > 0) {
                 reserva = list.get(0);
@@ -124,6 +125,23 @@ public class ReservaService {
         session.close(); // ??
         return reservas;
     }
+
+    // :::: OBTENER TOKEN POR NUMERO DE DOCUMENTO - TIPO DE DOCUMENTO - APELLIDO::::
+    public List<Reserva> getTOKEN_porIDYyTipo(String numeroDocumento, String tipoDocumento, String apellidoPersona) {
+        List<Reserva> reservas = new ArrayList<>();
+         Session session = openSession();
+         try {
+             reservas = session.createQuery("SELECT token FROM Reserva r WHERE r.numeroDocumento = :numeroDocumento and r.tipoDocumento =:tipoDocumento and r.apellidoPersona = :apellidoPersona", Reserva.class)
+             .setParameter("numeroDocumento", numeroDocumento)
+             .setParameter("tipoDocumento",tipoDocumento)
+             .setParameter("apellidoPersona",apellidoPersona).
+             list();
+         } catch (Exception e) {
+             e.printStackTrace();
+         }
+         session.close(); // ??
+         return reservas;
+     }
 
     // :::: ACTUALIZAR RESERVA ::::
     public String actualizarReserva(Reserva reserva) {
