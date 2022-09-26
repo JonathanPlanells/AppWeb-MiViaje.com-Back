@@ -18,7 +18,7 @@ public class HotelService {
     
     // ATRIBUTOS
     private SessionFactory factory;
-    File f = new File("back-miviaje/backmiviaje/src/main/resource/hibernate.cfg.xml");
+    File f = new File("src/main/resource/hibernate.cfg.xml");
 
     // :::: CREAR OBJETO QUE PERMITA FABRICAR SESIONES :::: 
     public HotelService(){
