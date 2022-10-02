@@ -60,9 +60,9 @@ public class ReservaController {
     }
 
     // ::::  OBTENIENDO TOKEN POR ID y TIPO ::::
-    @GetMapping("/token/{numerodocumento}/{tipoDocumento}/{apellidoPersona}")
-    public List<Reserva> getTOKEN_porIDYyTipo(@PathVariable(name="numerodocumento") String numeroDocumento, @PathVariable(name = "tipoDocumento") String tipoDocumento, @PathVariable(name = "apellidoPersona") String apellidoPersona){
-        return service.getTOKEN_porIDYyTipo(numeroDocumento, tipoDocumento,apellidoPersona);
+    @GetMapping("/token/{numerodocumento}/{tipoDocumento}/{correoPersona}")
+    public List<Reserva> getTOKEN_porIDYyTipo(@PathVariable(name="numerodocumento") String numeroDocumento, @PathVariable(name = "tipoDocumento") String tipoDocumento, @PathVariable(name = "correoPersona") String correoPersona){
+        return service.getTOKEN_porIDYyTipo(numeroDocumento, tipoDocumento,correoPersona);
     }
 
     // :::: BORRAR - RESERVA :::: //

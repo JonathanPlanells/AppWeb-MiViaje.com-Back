@@ -112,7 +112,7 @@ public class ReservaService {
         return reserva;
     }
 
-    // :::: OBTENER TOKEN ::::
+    // :::: OBTENER TOKEN POR NUMERO DE DOCUMENTO::::
     public List<Reserva> getID_TOKEN(String numeroDocumento) {
        List<Reserva> reservas = new ArrayList<>();
         Session session = openSession();
@@ -127,14 +127,14 @@ public class ReservaService {
     }
 
     // :::: OBTENER TOKEN POR NUMERO DE DOCUMENTO - TIPO DE DOCUMENTO - APELLIDO::::
-    public List<Reserva> getTOKEN_porIDYyTipo(String numeroDocumento, String tipoDocumento, String apellidoPersona) {
+    public List<Reserva> getTOKEN_porIDYyTipo(String numeroDocumento, String tipoDocumento, String correoPersona) {
         List<Reserva> reservas = new ArrayList<>();
          Session session = openSession();
          try {
-             reservas = session.createQuery("SELECT token FROM Reserva r WHERE r.numeroDocumento = :numeroDocumento and r.tipoDocumento =:tipoDocumento and r.apellidoPersona = :apellidoPersona", Reserva.class)
+             reservas = session.createQuery("SELECT token FROM Reserva r WHERE r.numeroDocumento = :numeroDocumento and r.tipoDocumento = :tipoDocumento and r.correoPersona = :correoPersona", Reserva.class)
              .setParameter("numeroDocumento", numeroDocumento)
              .setParameter("tipoDocumento",tipoDocumento)
-             .setParameter("apellidoPersona",apellidoPersona).
+             .setParameter("correoPersona",correoPersona).
              list();
          } catch (Exception e) {
              e.printStackTrace();
